@@ -1,0 +1,3 @@
+A = imread('squirtle.png'); %resmi bulunduğu konumdan okuduk
+G = fspecial('gaussian', [3 3], 10); % fspecial komutuyla gauss filtremizi oluşturduk.
+E = imfilter(A,G); % filtreyi A’ya atadığımız görsel üzerinde uyguladık.

@@ -1,0 +1,13 @@
+N = 400;
+Nu_cyc = 4;
+x = (1:N)*Nu_cyc/N; 
+
+I_sin(1,:) = 0.5 * sin(2*pi*x) + 0.5;
+
+
+for i=1:40
+    I(i,:) = I_sin(1,:);
+end
+
+IMF = cat(1,I)
+imshow(IMF)

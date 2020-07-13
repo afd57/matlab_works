@@ -1,0 +1,18 @@
+clear
+
+I = imread('iphone.jpg');
+[I_gray] = rgb2gray(I);
+
+threshold = graythresh(I);
+bw = im2bw(I,threshold);
+imshow(bw)
+
+bw = bwareaopen(bw,30);
+imshow(bw)
+% fill a gap in the pen's cap
+se = strel('disk',2);
+bw = imclose(bw,se);
+cc = bwconncomp(bw,4);
+
+figure 
+imshow(bw)

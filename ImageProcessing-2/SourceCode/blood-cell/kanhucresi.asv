@@ -1,0 +1,35 @@
+I = imread('blood.jpg');
+I_gray = rgb2gray(I);
+level = graythresh(I_gray);
+
+I_bw = im2bw(I_gray,level);
+imshow(I_gray)
+I_bw = imcomplement(I_bw);
+
+
+figure
+
+se = strel('disk',3);
+im_er = imerode(I_bw,se);
+imf = imfill(im_er,'hole');
+imf_er = imerode(imf,se);
+
+im_di = imdilate(imf_er,se);
+im_di = imdilate(im_di,se);
+cc = bwconncomp(im_di)
+
+
+[B,L] = bwboundaries(im_di,'noholes');
+imshow(imf)
+hold on
+
+for k = 1:length(B)
+boundary = B{k};
+plot(boundary(:,2), boundary(:,1), 'r', 'LineWidth', 2)
+text(centroid(1),centroid(2),sprintf('%d', k),'FontWeight','bold','EdgeColor',[1 0 0],'Color',[0.8471 0.1608 0]);
+end
+
+
+
+
+

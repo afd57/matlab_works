@@ -1,0 +1,23 @@
+function Y = nhanchap(X,H)
+%X la ma tran anh
+%H la ma tran nhan chap
+m = size(X); %Lay kich co cua ma tran X 
+n = size(H,1);
+for i=1:m(1)
+    for j=1:m(2)
+        sum=0;
+        t=floor((n+1)/2);
+        for k=1:n
+            for l=1:n
+                cot=i-k+t;
+                hang=j-l+t;
+                if (col~=0)&(col<=m(1))
+                    if(row~=0)&(row<=m(2))
+                        sum=sum+X(col,row)*H(k,l);
+                    end
+                end
+            end
+            Y(i,j)=sum;
+        end
+    end
+end

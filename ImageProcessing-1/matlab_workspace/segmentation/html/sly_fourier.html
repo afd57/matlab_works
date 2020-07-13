@@ -1,0 +1,151 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>sly_fourier</title>
+      <meta name="generator" content="MATLAB 7.8">
+      <meta name="date" content="2015-01-20">
+      <meta name="m-file" content="sly_fourier"><style type="text/css">
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content"><pre class="codeinput">clear
+I = imread(<span class="string">'round.jpg'</span>);
+I_resize = imresize(I,[400 400]);
+I_gray = rgb2gray(I_resize);
+figure
+imshow(I_gray)
+xlabel({<span class="string">'RESIM'</span>});
+F_I_gray = fft2(I_gray);
+figure
+F_I_gray = fftshift(F_I_gray);
+imshow(F_I_gray)
+<span class="comment">%*************************mask********************************</span>
+mask1 = ones(400,400);
+mask = zeros(400,400);
+mask(30:370,30:370) = 1;
+<span class="comment">%mask = imcomplement(mask);</span>
+
+figure
+imshow(mask)
+xlabel({<span class="string">'MASK'</span>});
+figure
+imshow(mask.*F_I_gray)
+xlabel({<span class="string">'mask.*F_I_gray'</span>});
+F_I_gray = mask.*F_I_gray;
+F_I_gray = fftshift(F_I_gray);
+figure
+imshow(F_I_gray)
+resim2 = ifft2(F_I_gray);
+figure
+imshow(resim2,[])
+xlabel({<span class="string">'Filitre ile carpilmis resim'</span>});
+</pre><pre class="codeoutput">Warning: Displaying real part
+of complex input. 
+Warning: Displaying real part
+of complex input. 
+Warning: Displaying real part
+of complex input. 
+Warning: Displaying real part
+of complex input. 
+</pre><img vspace="5" hspace="5" src="sly_fourier_01.png" alt=""> <img vspace="5" hspace="5" src="sly_fourier_02.png" alt=""> <img vspace="5" hspace="5" src="sly_fourier_03.png" alt=""> <img vspace="5" hspace="5" src="sly_fourier_04.png" alt=""> <img vspace="5" hspace="5" src="sly_fourier_05.png" alt=""> <img vspace="5" hspace="5" src="sly_fourier_06.png" alt=""> <p class="footer"><br>
+            Published with MATLAB&reg; 7.8<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+clear
+I = imread('round.jpg');
+I_resize = imresize(I,[400 400]);
+I_gray = rgb2gray(I_resize);
+figure
+imshow(I_gray)
+xlabel({'RESIM'});
+F_I_gray = fft2(I_gray);
+figure
+F_I_gray = fftshift(F_I_gray);
+imshow(F_I_gray)
+%*************************mask********************************
+mask1 = ones(400,400);
+mask = zeros(400,400);
+mask(30:370,30:370) = 1;
+%mask = imcomplement(mask);
+
+figure
+imshow(mask)
+xlabel({'MASK'});
+figure
+imshow(mask.*F_I_gray)
+xlabel({'mask.*F_I_gray'});
+F_I_gray = mask.*F_I_gray;
+F_I_gray = fftshift(F_I_gray);
+figure
+imshow(F_I_gray)
+resim2 = ifft2(F_I_gray);
+figure
+imshow(resim2,[])
+xlabel({'Filitre ile carpilmis resim'});
+##### SOURCE END #####
+-->
+   </body>
+</html>

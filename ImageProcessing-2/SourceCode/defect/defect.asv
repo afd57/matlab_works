@@ -1,0 +1,6 @@
+clear
+I = imread('cap.png');
+I_g = rgb2gray(I);
+I_bw = im2bw(I_g,graythresh(I_g));
+se = strel('disk',5);
+

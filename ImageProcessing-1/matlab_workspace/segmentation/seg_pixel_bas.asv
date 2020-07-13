@@ -1,0 +1,5 @@
+I = imread('ay.png');
+J = rgb2gray(I);
+imhist(J)
+
+I_rescale = imscale(J, [low high], [bottom top], gamma);

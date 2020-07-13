@@ -1,0 +1,25 @@
+clear
+I = imread('zebra.png');
+imshow(I)
+
+ffI = fft2(I);
+fshtI = fftshift(ffI);
+
+mask1 = ones(256,256);
+mask = zeros(400,400);
+mask(200:192,64:192) = 1;
+mask2 = mask - mask1;
+
+figure
+imshow(fshtI)
+figure
+imshow(mask .* fshtI)
+
+f2shtI = fftshift(mask .* fshtI);
+resim = ifft2(f2shtI);
+figure 
+Imshow(resim,[]);
+
+
+
+

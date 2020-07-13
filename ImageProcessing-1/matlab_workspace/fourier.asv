@@ -1,0 +1,18 @@
+clear
+I = imread('cameraman.tif');
+
+ffI = fft2(I);
+fshtI = fftshift(ffI);
+
+mask = zeros(256,256);
+mask(64:192,64:192) = 1;
+
+
+f2shtI = fftshift(mask .* fshtI);
+resim = ifft2(f2shtI);
+figure 
+Imshow(resim,[]);
+
+
+
+

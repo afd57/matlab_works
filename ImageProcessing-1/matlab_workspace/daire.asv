@@ -1,0 +1,15 @@
+B=0;
+for i=1:256
+    for j=1:256
+        dist = ((i-128)^2 + (j-128)^2)*(0.5)
+        if(dist<80)
+            B(i,j)=255;
+        else
+            B(i,j)=0;
+        end
+    end
+end
+
+imwrite(B,'aa.bmp')
+            
+

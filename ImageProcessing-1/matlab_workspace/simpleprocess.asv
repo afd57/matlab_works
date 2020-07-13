@@ -1,0 +1,3 @@
+clear
+I = imread('lena_bw.png');
+I_crop = I(200:300 , 200 : 300);
