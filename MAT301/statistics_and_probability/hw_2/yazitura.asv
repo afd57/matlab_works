@@ -1,0 +1,29 @@
+yazi=0;
+tura=0;
+x=[0,0];
+for i=1:1000
+    if rand()< 0.5
+        yazi= yazi +1;
+    else
+        tura = tura +1;
+    end
+end
+
+x=[yazi,tura];
+
+figure1 = figure('PaperSize',[20.98 29.68]);
+axes('Visible','off','Parent',figure1,'PlotBoxAspectRatio',[1.2 1.2 1],...
+    'DataAspectRatio',[1 1 1]);
+
+annotation(figure1,'textbox','String',{'Yazi'},'FontWeight','bold',...
+    'FontSize',20,...
+    'FitBoxToText','off',...
+    'Position',[0.307 0.4677 0.1273 0.1158],...
+    'Color',[1 1 1]);
+annotation(figure1,'textbox','String',{'TURA'},'FontWeight','bold',...
+    'FontSize',20,...
+    'FitBoxToText','off',...
+    'Position',[0.5609 0.4708 0.1586 0.1158],...
+    'Color',[1 1 1]);
+
+bar(x);

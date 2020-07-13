@@ -1,0 +1,44 @@
+fair = [0,0,0,0];
+weight = [0,0,0,0];
+a=rand;
+
+if(a<0.5)
+    a=1; %fair coin
+else
+    a=2; %weight coin
+end
+
+for i=1:100
+    switch a
+        case 1%fair
+            fc = rand;
+            if(fc<0.5)
+                %tura
+                fair(i)=1;
+                a=1;
+            else
+                %yazi
+                fair(i)=0;
+                a=2;
+            end
+            
+        case 2%weight
+            w_c = rand;
+            if(w_c<0.25)
+                weight(i)=1;
+                a=1;
+                %tura
+            else
+                %yazi
+                weight(i)=0;
+                a=2;
+            end
+    end
+end
+
+i=[1:1:100];
+
+stem(fair)
+
+figure
+stem(weight)
