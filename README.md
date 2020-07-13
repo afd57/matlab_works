@@ -48,7 +48,7 @@ My presentation and report in this path [Doc](./ImageProcessing-1/Doc). The sour
 
 I worked on morphological image processing on my licensing project in 2015. 
 
-My report in this path [Doc](./ImageProcessing-2/Doc). The source code is in [Matlab Image Processing Source Code](./ImageProcessing-2/SourceCode)
+My report in this path [Doc](./ImageProcessing-2/Doc). The source code is in [Matlab Morphological Image Processing Source Code](./ImageProcessing-2/SourceCode)
 
 
 
